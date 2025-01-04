@@ -12,7 +12,9 @@
     "lint": "expo lint",
     "build-dev": "NODE_ENV=development eas build --platform ios --profile development",
     "build-preview": "NODE_ENV=preview eas build --platform ios --profile preview",
-    "build-prod": "NODE_ENV=production eas build --platform all --profile production"
+    "build-prod": "NODE_ENV=production eas build --platform all --profile production",
+    "update-types": "npx supabase gen types typescript --project-id \"tbqmadkgieooxekluvtc\" --schema public > supabase-utils/database-types.ts",
+    "update-types-dev": "npx supabase gen types typescript --local > supabase-utils/database-types.ts"
   },
   "jest": {
     "preset": "jest-expo"
@@ -25,6 +27,9 @@
     "@react-navigation/stack": "^7.1.1",
     "@rneui/themed": "^4.0.0-rc.8",
     "@supabase/supabase-js": "^2.47.10",
+    "@tamagui/config": "1.121.4",
+    "@tamagui/lucide-icons": "1.121.4",
+    "dayjs": "^1.11.13",
     "expo": "~52.0.23",
     "expo-auth-session": "~6.0.1",
     "expo-blur": "~14.0.1",
@@ -32,6 +37,7 @@
     "expo-dev-client": "~5.0.8",
     "expo-font": "~13.0.2",
     "expo-haptics": "~14.0.0",
+    "expo-image-picker": "^16.0.3",
     "expo-linking": "~7.0.3",
     "expo-random": "^14.0.1",
     "expo-router": "~4.0.15",
@@ -50,7 +56,8 @@
     "react-native-screens": "~4.4.0",
     "react-native-url-polyfill": "^2.0.0",
     "react-native-web": "~0.19.13",
-    "react-native-webview": "13.12.5"
+    "react-native-webview": "13.12.5",
+    "tamagui": "1.121.4"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
@@ -60,6 +67,7 @@
     "jest": "^29.2.1",
     "jest-expo": "~52.0.2",
     "react-test-renderer": "18.3.1",
+    "supabase": "^2.2.1",
     "typescript": "^5.3.3"
   },
   "private": true

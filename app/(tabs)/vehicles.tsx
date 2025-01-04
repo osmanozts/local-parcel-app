@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet, FlatList, SafeAreaView } from "react-native";
+import { useTheme, YStack } from "tamagui";
 
 const vehicles = [
   { id: "1", name: "Truck 1", status: "Available" },
@@ -8,19 +9,30 @@ const vehicles = [
 ];
 
 export default function VehiclesTabScreen() {
+  const theme = useTheme();
+
   return (
-    <SafeAreaView>
-      <Text style={styles.heading}>Assigned Vehicles</Text>
-      <FlatList
-        data={vehicles}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <View style={styles.card}>
-            <Text style={styles.name}>{item.name}</Text>
-            <Text style={styles.status}>Status: {item.status}</Text>
-          </View>
-        )}
-      />
+    <SafeAreaView
+      style={{ flex: 1, backgroundColor: theme.backgroundColor?.val }}
+    >
+      <YStack
+        padding={16}
+        height="100%"
+        justifyContent="space-between"
+        backgroundColor="$bg"
+      >
+        <Text style={styles.heading}>Assigned Vehicles</Text>
+        <FlatList
+          data={vehicles}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => (
+            <View style={styles.card}>
+              <Text style={styles.name}>{item.name}</Text>
+              <Text style={styles.status}>Status: {item.status}</Text>
+            </View>
+          )}
+        />
+      </YStack>
     </SafeAreaView>
   );
 }

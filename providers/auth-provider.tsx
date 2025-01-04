@@ -5,8 +5,9 @@ import React, {
   useState,
   ReactNode,
 } from "react";
-import { supabaseClient } from "../utils/supabase";
+
 import { useRouter } from "expo-router";
+import { supabaseClient } from "../supabase-utils/supabase";
 
 interface AuthContextType {
   user: any;
